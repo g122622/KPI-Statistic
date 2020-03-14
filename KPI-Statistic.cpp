@@ -36,6 +36,8 @@ void main()
 	cin >> awake_time;
 	cout << "[睡眠时间（区间）]" << endl;
 	cin >> sleep_duration;
+	cout << "睡眠指数：" << (float)((digitMin(sleep_duration) / 60.0) + digitHour(sleep_duration)) * (float)(9.0 - (digitMin(awake_time) / 60.0) - digitHour(awake_time)) * (float)(9.0 - (digitMin(awake_time) / 60.0) - digitHour(awake_time));
+	cout << endl;
 	while (true)
 	{
 		count++;
@@ -56,5 +58,6 @@ void main()
 	kpi += (float)((digitMin(sleep_duration) / 60.0) + digitHour(sleep_duration)) * 100.0 - 500.0;
 	cout << "KPI为：" << kpi << endl;
 	cout << "睡眠指数：" << (float)((digitMin(sleep_duration) / 60.0) + digitHour(sleep_duration)) * (float)(9.0 - (digitMin(awake_time) / 60.0) - digitHour(awake_time)) * (float)(9.0 - (digitMin(awake_time) / 60.0) - digitHour(awake_time));
+	cout << endl;
 	system("pause");
 }

@@ -1,5 +1,6 @@
 ﻿#include <iostream>
 #include <vector>
+//#include "gymath.h"
 using namespace std;
 
 // 全局变量
@@ -66,7 +67,6 @@ void main()
 	cin >> sleep_duration;
 	action.calcSI();
 	action.calcKPI();
-	cout << endl << endl;
 
 	int count = 0;
 	while (true)
@@ -87,5 +87,12 @@ void main()
 	// 开始计算KPI
 	action.calcKPI();
 	action.calcSI();
+/*	int sum = 0;
+	for (int i = 0; i < temp.size() - 1; i++)
+	{
+		sum += temp[i + 1] - temp[i];
+	}
+	sum /= temp.size();
+	cout << "平均每项耗时" << sum << endl;*/
 	system("pause");
 }

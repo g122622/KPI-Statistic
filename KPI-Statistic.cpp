@@ -5,7 +5,7 @@ using namespace std;
 
 // 全局变量
 vector<int> temp;
-int sleep_duration = 0, awake_time = 0;
+int sleep_time = 0, set_out_time = 0, shcool_homework_finish_time = 0;
 float kpi = 0.0;
 
 int digitMin(int num)
@@ -39,34 +39,40 @@ public:
 	{
 		for (auto item : temp)
 			kpi += (float)(24.0 - digitTime(item)) * 20.0;
-		kpi += (float)(9.0 - digitTime(awake_time)) * 100.0;
-		kpi += (float)(digitTime(sleep_duration)) * 100.0 - 500.0;
+		kpi += (float)(7.5 - digitTime(set_out_time)) * 5000.0;
+		kpi += (float)(24.0 - digitTime(sleep_time)) * 5000.0;
+		kpi += (float)(24.0 - digitTime(shcool_homework_finish_time)) * 500.0;
 		cout << "KPI为：" << kpi << endl;
 		kpi = 0.0;
 		return;
 	}
 
-	void calcSI()
+	/*void calcSI()
 	{
-		cout << "睡眠指数：" << (float)digitTime(sleep_duration) * \
-			(float)(9.0 - digitTime(awake_time)) * \
-			(float)(9.0 - digitTime(awake_time)) << endl;
+		cout << "睡眠指数：" << (float)digitTime(sleep_time) * \
+			(float)(9.0 - digitTime(set_out_time)) * \
+			(float)(9.0 - digitTime(set_out_time)) << endl;
 		return;
-	}
+	}*/
 };
 void main()
 {
-	action action;
+	action Action;
 	cout << "1.输入四位整数（或者三位）。" << endl
 		<< "2.按照时间格式。" << endl
 		<< "3.输入0停止采集数据，开始计算。" << endl;
 	// 开始输入KPI各项数据
-	cout << "[起床时刻]" << endl;
-	cin >> awake_time;
-	cout << "[睡眠时间（区间）]" << endl;
-	cin >> sleep_duration;
-	action.calcSI();
-	action.calcKPI();
+	cout << "[早上出发时间]" << endl;
+	cin >> set_out_time;
+	cout << "[睡眠时刻]" << endl;
+	cin >> sleep_time;
+	cout << "[完成学校作业时间]" << endl;
+	cin >> shcool_homework_finish_time;
+//	cout << "[***]" << endl;
+//	cin >> ***;
+
+//	Action.calcSI();
+//	Action.calcKPI();
 
 	int count = 0;
 	while (true)
@@ -80,13 +86,13 @@ void main()
 			temp.erase(temp.end() - 1);
 			break;
 		}
-		action.calcKPI();
+		Action.calcKPI();
 	}
 
 	cout << endl << endl << "==========" << endl;
 	// 开始计算KPI
-	action.calcKPI();
-	action.calcSI();
+	Action.calcKPI();
+//	Action.calcSI();
 /*	int sum = 0;
 	for (int i = 0; i < temp.size() - 1; i++)
 	{

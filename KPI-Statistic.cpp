@@ -83,14 +83,12 @@ void main()
 //	Action.calcKPI();
 
 	int count = 0;
-	while (true)
-	{
+	while (true) {
 		count++;
 		temp.push_back(0);
 		cout << "[事件" << count << "]" << endl;
 		cin >> temp[count - 1];
-		if (temp[count - 1] == 0)
-		{
+		if (temp[count - 1] == 0) {
 			temp.erase(temp.end() - 1);
 			break;
 		}
